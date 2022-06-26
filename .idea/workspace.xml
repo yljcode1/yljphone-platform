@@ -4,11 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2102e1e-3621-4d3c-a082-899b09d9f090" name="Changes" comment="" />
+    <list default="true" id="c2102e1e-3621-4d3c-a082-899b09d9f090" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yljphone-business/yljphone-business-student/yljphone-business-student-core/src/main/java/com/yao/business/student/application/StuApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yljphone-business/yljphone-business-student/yljphone-business-student-core/src/main/java/com/yao/business/student/application/controller/StuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yljphone-business/yljphone-business-student/yljphone-business-student-core/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yljphone-business/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/yljphone-business/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yljphone-business/yljphone-business-student/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/yljphone-business/yljphone-business-student/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yljphone-business/yljphone-business-student/yljphone-business-student-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/yljphone-business/yljphone-business-student/yljphone-business-student-core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yljphone-business/yljphone-business-student/yljphone-business-student-feign/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/yljphone-business/yljphone-business-student/yljphone-business-student-feign/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yljphone-common/yljphone-common-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/yljphone-common/yljphone-common-web/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -23,18 +46,47 @@
     </option>
   </component>
   <component name="ProjectId" id="2B7MnUm6t6NQFzCkfW0RVp5UKaR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.33793104" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunManager">
+    <configuration name="StuApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="yljphone-business-student-core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yao.business.student.application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yao.business.student.application.StuApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.StuApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -44,11 +96,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656252836873</updated>
-      <workItem from="1656252838107" duration="3964000" />
+      <workItem from="1656252838107" duration="5895000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

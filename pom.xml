@@ -23,7 +23,7 @@
         <springcloud-netflix.version>Hoxton.SR9</springcloud-netflix.version>
         <springcloud-alibaba.version>2.2.6.RELEASE</springcloud-alibaba.version>
         <maven-plugin.version>3.8.1</maven-plugin.version>
-
+        <project.version>1.0</project.version>
     </properties>
 
     <!-- 添加SpringBoot、SpringCloud Netflix、SpringCloud alibaba的相关基础依赖-->
@@ -55,6 +55,33 @@
             </dependency>
 
             <!-- 管理后续相关的依赖-->
+
+            <!--自己架构的相关依赖-->
+            <dependency>
+                <groupId>com.yao</groupId>
+                <artifactId>yljphone-common-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yao</groupId>
+                <artifactId>yljphone-business-student</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yao</groupId>
+                <artifactId>yljphone-business-student-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yao</groupId>
+                <artifactId>yljphone-business-student-feign</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yao</groupId>
+                <artifactId>yljphone-business</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
