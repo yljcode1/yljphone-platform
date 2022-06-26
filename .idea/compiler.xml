@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="yljphone-ability" />
+        <module name="yljphone-business-student-feign" />
+        <module name="yljphone-common-core" />
+        <module name="yljphone-data-mapper" />
+        <module name="yljphone-data-entity" />
+        <module name="yljphone-business-student-core" />
+        <module name="yljphone-config" />
+        <module name="yljphone-common-web" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
