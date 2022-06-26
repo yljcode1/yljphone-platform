@@ -21,6 +21,10 @@
             <groupId>com.yao</groupId>
             <artifactId>yljphone-common-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.yao</groupId>
+            <artifactId>yljphone-common-core</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

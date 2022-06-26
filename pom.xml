@@ -64,6 +64,11 @@
             </dependency>
             <dependency>
                 <groupId>com.yao</groupId>
+                <artifactId>yljphone-common-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yao</groupId>
                 <artifactId>yljphone-business-student</artifactId>
                 <version>${project.version}</version>
             </dependency>
