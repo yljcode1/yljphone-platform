@@ -88,10 +88,39 @@
                 <artifactId>yljphone-business</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.yao</groupId>
+                <artifactId>yljphone-config</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <!--配置maven占位符-->
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <runtime-profile>dev</runtime-profile>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <runtime-profile>test</runtime-profile>
+            </properties>
+        </profile>
+    </profiles>
     <build>
+
+        <!--配置占位符的统一生效-->
+        <resources>
+            <resource>
+                <!--占位符替换-->
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <!--maven的编译插件-->
             <plugin>

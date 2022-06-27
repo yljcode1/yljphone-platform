@@ -1,5 +1,6 @@
 package com.yao.business.student.application.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,12 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/stu")
 public class StuController {
 
+    @Value("${spring.datasource.url}")
+    private String dbUrl;
+
     /**
      * 查询所有学生
      */
     @RequestMapping("/list")
     public String list() {
         System.out.println("学生列表:");
+        System.out.println(dbUrl);
         return "stu list";
     }
 }
