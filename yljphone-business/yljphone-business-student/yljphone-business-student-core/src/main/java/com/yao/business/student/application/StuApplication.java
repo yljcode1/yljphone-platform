@@ -9,6 +9,7 @@ import javax.swing.*;
  * date: 2022/6/26
  * author: yao
  * 学生服务启动类
+ * @author yao
  */
 @SpringBootApplication
 public class StuApplication {

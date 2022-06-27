@@ -14,6 +14,7 @@
         <module>yljphone-common</module>
         <module>yljphone-config</module>
         <module>yljphone-data</module>
+        <module>yljphone-job</module>
     </modules>
 
     <properties>
