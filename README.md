@@ -11,3 +11,4 @@
     * yljphone-data: 架构数据管理模块
         * yljphone-data-entity: 实体类的相关管理
         * yljphone-data-mapper: mybatis映射文件管理
+    * yljphone-job: 分布式任务调度中心，集成xxl-job，可支持定制化操作
