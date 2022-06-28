@@ -31,4 +31,13 @@ public class StuController {
         log.info("测试打印日志信息");
         return "stu list";
     }
+
+    /**
+     * 登录用户
+     */
+    @RequestMapping("/login")
+    public String login(String username, String password) {
+        log.info("[stu-login]学生登录，用户名:{},密码:{}", username, password);
+        return "登录成功";
+    }
 }

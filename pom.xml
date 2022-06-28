@@ -25,6 +25,7 @@
         <springcloud-alibaba.version>2.2.6.RELEASE</springcloud-alibaba.version>
         <maven-plugin.version>3.8.1</maven-plugin.version>
         <project.version>1.0</project.version>
+        <log4j2.version>2.15.0</log4j2.version>
     </properties>
 
     <!-- 添加SpringBoot、SpringCloud Netflix、SpringCloud alibaba的相关基础依赖-->
@@ -56,7 +57,18 @@
             </dependency>
 
             <!-- 管理后续相关的依赖-->
+            <!--日志管理-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
 
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
             <!--自己架构的相关依赖-->
             <dependency>
                 <groupId>com.yao</groupId>
