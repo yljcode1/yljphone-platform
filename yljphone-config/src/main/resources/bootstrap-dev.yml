@@ -5,7 +5,7 @@ spring:
         server-addr: 120.79.212.252:8848
         namespace: 5ec6911b-fc1b-4055-b19e-8eec500d3d06
         group: MY-GROUP
-        file-extension: yml
+        file-extension: yaml
         prefix: ${spring.application.name}
       discovery:
         server-addr: 120.79.212.252:8848
