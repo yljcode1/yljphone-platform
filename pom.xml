@@ -25,7 +25,9 @@
         <springcloud-alibaba.version>2.2.6.RELEASE</springcloud-alibaba.version>
         <maven-plugin.version>3.8.1</maven-plugin.version>
         <project.version>1.0</project.version>
+        <!--2.14.1版本存在注入漏洞-->
         <log4j2.version>2.15.0</log4j2.version>
+        <disruptor.version>3.4.2</disruptor.version>
     </properties>
 
     <!-- 添加SpringBoot、SpringCloud Netflix、SpringCloud alibaba的相关基础依赖-->
@@ -68,6 +70,11 @@
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-api</artifactId>
                 <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${disruptor.version}</version>
             </dependency>
             <!--自己架构的相关依赖-->
             <dependency>
