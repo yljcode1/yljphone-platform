@@ -30,6 +30,7 @@ public class StuController {
         System.out.println("学生列表:");
         System.out.println(dbUrl);
         log.info("测试打印日志信息");
+        System.out.println(1/0);
         return Response.success("stu list");
     }
 

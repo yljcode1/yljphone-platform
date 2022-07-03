@@ -75,7 +75,7 @@ public class Response<T> implements Serializable {
      * @param <T>  返回类型
      * @return 返回对象
      */
-    public static <T> Response<T> create(ResponseCode code) {
+    public static <T> Response<T> fail(ResponseCode code) {
         return new Response(code.getCode(), code.getMsg(), null);
     }
 
