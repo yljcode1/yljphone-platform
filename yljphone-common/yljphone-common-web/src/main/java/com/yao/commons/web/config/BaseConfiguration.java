@@ -19,4 +19,5 @@ public class BaseConfiguration {
     public GlobalException getGlobalException() {
         return new GlobalException();
     }
+
 }

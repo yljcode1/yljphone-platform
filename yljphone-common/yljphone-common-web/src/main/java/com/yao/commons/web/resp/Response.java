@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * 统一接口返回对象
@@ -79,4 +80,7 @@ public class Response<T> implements Serializable {
         return new Response(code.getCode(), code.getMsg(), null);
     }
 
+    public static <T> Response fail(ResponseCode paramentError, T data) {
+        return new Response(paramentError.getCode(), paramentError.getMsg(), data);
+    }
 }

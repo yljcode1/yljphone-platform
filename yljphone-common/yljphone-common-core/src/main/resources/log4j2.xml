@@ -131,7 +131,7 @@ monitorInterval log4j能够自动检测修改配置文件和重新配置本身�
         </asyncroot>
 
         <!-- 过滤 让自己的debug日志可以输出到控制台 additivity=false 关闭日志输出的继承 -->
-        <asynclogger name="com.qf" level="debug" additivity="false">
+        <asynclogger name="com.yao" level="debug" additivity="false">
             <appender-ref ref="Console"/>
             <appender-ref ref="RollingFileDebug"/>
             <appender-ref ref="RollingFileError"/>
