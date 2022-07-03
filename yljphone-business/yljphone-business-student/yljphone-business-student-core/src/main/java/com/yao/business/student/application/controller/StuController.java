@@ -1,5 +1,6 @@
 package com.yao.business.student.application.controller;
 
+import com.yao.commons.web.resp.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -25,11 +26,11 @@ public class StuController {
      * 查询所有学生
      */
     @RequestMapping("/list")
-    public String list() {
+    public Response<String> list() {
         System.out.println("学生列表:");
         System.out.println(dbUrl);
         log.info("测试打印日志信息");
-        return "stu list";
+        return Response.success("stu list");
     }
 
     /**

@@ -41,8 +41,19 @@ public class Response<T> implements Serializable {
      * @param <T>  返回类型
      * @return 返回对象
      */
-    public static <T> Response create(T data) {
+    public static <T> Response<T> success(T data) {
         return new Response(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), data);
+    }
+
+    /**
+     * 生成指定相应失败枚举类
+     *
+     * @param data 传入数据
+     * @param <T>  返回类型
+     * @return 返回对象
+     */
+    public static <T> Response<T> fail(T data) {
+        return new Response(ResponseCode.FAIL.getCode(), ResponseCode.FAIL.getMsg(), data);
     }
 
     /**
@@ -53,7 +64,7 @@ public class Response<T> implements Serializable {
      * @param <T>  返回类型
      * @return 返回对象
      */
-    public static <T> Response create(ResponseCode code, T data) {
+    public static <T> Response<T> create(ResponseCode code, T data) {
         return new Response(code.getCode(), code.getMsg(), data);
     }
 
@@ -64,7 +75,7 @@ public class Response<T> implements Serializable {
      * @param <T>  返回类型
      * @return 返回对象
      */
-    public static <T> Response create(ResponseCode code) {
+    public static <T> Response<T> create(ResponseCode code) {
         return new Response(code.getCode(), code.getMsg(), null);
     }
 
