@@ -21,6 +21,7 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <!--移除logback日志框架-->
             <groupId>org.springframework.boot</groupId>
@@ -55,13 +56,21 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.lmax</groupId>
-            <artifactId>disruptor</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.lmax</groupId>-->
+<!--            <artifactId>disruptor</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.yao</groupId>
             <artifactId>yljphone-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yao</groupId>
+            <artifactId>yljphone-common-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yao</groupId>
+            <artifactId>yljphone-common-core</artifactId>
         </dependency>
     </dependencies>
 </project>

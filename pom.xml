@@ -18,64 +18,177 @@
     </modules>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <springboot.version>2.3.0.RELEASE</springboot.version>
-        <springcloud-netflix.version>Hoxton.SR9</springcloud-netflix.version>
-        <springcloud-alibaba.version>2.2.6.RELEASE</springcloud-alibaba.version>
-        <maven-plugin.version>3.8.1</maven-plugin.version>
-        <project.version>1.0</project.version>
-        <!--2.14.1版本存在注入漏洞-->
-        <log4j2.version>2.15.0</log4j2.version>
-        <disruptor.version>3.4.2</disruptor.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <spring-boot-dependencies.version>2.3.0.RELEASE</spring-boot-dependencies.version>
+        <spring-cloud-dependencies.version>Hoxton.SR9</spring-cloud-dependencies.version>
+        <spring-cloud-alibaba-dependencies.version>2.2.6.RELEASE</spring-cloud-alibaba-dependencies.version>
+        <druid-starter.version>1.1.21</druid-starter.version>
+        <mybatis-plus.version>3.4.0</mybatis-plus.version>
+        <hutool.version>5.5.7</hutool.version>
+        <basic.version>1.0-SNAPSHOT</basic.version>
+        <openfeign.version>2.2.8.RELEASE</openfeign.version>
+        <servlet.version>2.5</servlet.version>
+        <ken-page.verison>1.2.2</ken-page.verison>
+        <slf4j.version>1.7.32</slf4j.version>
+        <fastjson.version>1.2.70</fastjson.version>
+        <ken-cache.version>1.0</ken-cache.version>
+        <skywalking-log4j2.version>6.6.0</skywalking-log4j2.version>
+        <javassist.version>3.25.0-GA</javassist.version>
+        <es.version>6.8.8</es.version>
+        <redission.version>3.13.6</redission.version>
+        <mybatis.version>3.5.5</mybatis.version>
+        <security-oauth.version>2.3.3.RELEASE</security-oauth.version>
     </properties>
 
-    <!-- 添加SpringBoot、SpringCloud Netflix、SpringCloud alibaba的相关基础依赖-->
+    <!-- 自动生成配置提升文件的依赖 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <!-- 父工程依赖管理 -->
     <dependencyManagement>
         <dependencies>
-            <!--SpringBoot基础依赖-->
+            <!-- SpringBoot 依赖 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${springboot.version}</version>
+                <version>${spring-boot-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- SpringCloud Netflix-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${springcloud-netflix.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!--SpringCloud Alibaba-->
+            <!--SpringCloud Alibaba依赖-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${springcloud-alibaba.version}</version>
+                <version>${spring-cloud-alibaba-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- SpringCloud Netflix依赖 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--springcloud springboot spring cloud end-->
 
-            <!-- 管理后续相关的依赖-->
-            <!--日志管理-->
             <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-core</artifactId>
-                <version>${log4j2.version}</version>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-api</artifactId>
-                <version>${log4j2.version}</version>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${javassist.version}</version>
+            </dependency>
+
+            <!-- mysql start -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-starter.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.lmax</groupId>
-                <artifactId>disruptor</artifactId>
-                <version>${disruptor.version}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.verygoodwlk</groupId>
+                <artifactId>ken-page-boot-starter</artifactId>
+                <version>${ken-page.verison}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.verygoodwlk</groupId>
+                <artifactId>ken-page-mybatis-commons</artifactId>
+                <version>${ken-page.verison}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <!-- druid 官方 end -->
+
+            <!-- 通用工具类相关 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- 日志相关 -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-log4j2</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.skywalking</groupId>
+                <artifactId>apm-toolkit-log4j-2.x</artifactId>
+                <version>${skywalking-log4j2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.skywalking</groupId>
+                <artifactId>apm-toolkit-trace</artifactId>
+                <version>${skywalking-log4j2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${security-oauth.version}</version>
+            </dependency>
+            <!--&lt;!&ndash; 缓存相关 &ndash;&gt;
+            <dependency>
+                <groupId>com.ken</groupId>
+                <artifactId>ken-cache-boot-starter</artifactId>
+                <version>${ken-cache.version}</version>
+            </dependency>-->
+
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch-core</artifactId>
+                <version>${es.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redission.version}</version>
+            </dependency>
+
             <!--自己架构的相关依赖-->
             <dependency>
                 <groupId>com.yao</groupId>
@@ -145,7 +258,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-plugin.version}</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>

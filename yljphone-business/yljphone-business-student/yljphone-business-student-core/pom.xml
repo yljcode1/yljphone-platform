@@ -17,14 +17,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.yao</groupId>
-            <artifactId>yljphone-common-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.yao</groupId>
-            <artifactId>yljphone-common-core</artifactId>
-        </dependency>
+
 
 <!--        <dependency>-->
 <!--            &lt;!&ndash;移除logback日志框架&ndash;&gt;-->

@@ -18,8 +18,8 @@ monitorInterval log4j能够自动检测修改配置文件和重新配置本身�
         <!--<property name="LOG_PATTERN" value="%date{yy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} [%X{X-B3-TraceId}, %X{X-B3-SpanId}, %X{X-B3-ParentSpanId}, %X{X-Span-Export}] - %msg%n" />-->
         <property name="LOG_PATTERN" value="%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} [%traceId] - %msg%n" />
         <!-- 定义日志存储的路径，不要配置相对路径 -->
-        <property name="FILE_PATH" value="./logs/" />
-        <property name="FILE_NAME" value="mylogs" />
+        <property name="FILE_PATH" value="./logs/${ctx:logPath}" />
+        <property name="FILE_NAME" value="${ctx:logName}" />
     </Properties>
 
     <!-- 定义输出器 -->
@@ -119,31 +119,31 @@ monitorInterval log4j能够自动检测修改配置文件和重新配置本身�
 
     <!--Logger节点用来单独指定日志的形式，比如要为指定包下的class指定不同的日志级别等。-->
     <!--然后定义loggers，只有定义了logger并引入的appender，appender才会生效-->
-    <loggers>
-        <asyncroot level="info">
-            <appender-ref ref="Console"/>
-            <appender-ref ref="Filelog"/>
-            <appender-ref ref="RollingFileDebug"/>
-            <appender-ref ref="RollingFileInfo"/>
-            <appender-ref ref="RollingFileWarn"/>
-            <appender-ref ref="RollingFileError"/>
-            <appender-ref ref="SkywalkingLog"/>
-        </asyncroot>
+<!--    <loggers>-->
+<!--        <asyncroot level="info">-->
+<!--            <appender-ref ref="Console"/>-->
+<!--            <appender-ref ref="Filelog"/>-->
+<!--            <appender-ref ref="RollingFileDebug"/>-->
+<!--            <appender-ref ref="RollingFileInfo"/>-->
+<!--            <appender-ref ref="RollingFileWarn"/>-->
+<!--            <appender-ref ref="RollingFileError"/>-->
+<!--            <appender-ref ref="SkywalkingLog"/>-->
+<!--        </asyncroot>-->
 
-        <!-- 过滤 让自己的debug日志可以输出到控制台 additivity=false 关闭日志输出的继承 -->
-        <asynclogger name="com.qf" level="debug" additivity="false">
-            <appender-ref ref="Console"/>
-            <appender-ref ref="RollingFileDebug"/>
-            <appender-ref ref="RollingFileError"/>
-            <appender-ref ref="SkywalkingLog"/>
-        </asynclogger>
+<!--        &lt;!&ndash; 过滤 让自己的debug日志可以输出到控制台 additivity=false 关闭日志输出的继承 &ndash;&gt;-->
+<!--        <asynclogger name="com.qf" level="debug" additivity="false">-->
+<!--            <appender-ref ref="Console"/>-->
+<!--            <appender-ref ref="RollingFileDebug"/>-->
+<!--            <appender-ref ref="RollingFileError"/>-->
+<!--            <appender-ref ref="SkywalkingLog"/>-->
+<!--        </asynclogger>-->
 
 
-        <!-- 第三方日志系统 -->
-        <!--过滤掉spring和mybatis的一些无用的DEBUG信息，也可以在spring boot 的logging.level.org.springframework=FATAL设置-->
-        <!-- <logger name="org.springframework" level="INFO"></logger> -->
-        <!-- <logger name="org.mybatis" level="INFO"></logger> -->
-        <!-- <logger name="org.apache.http" level="warn" /> -->
-    </loggers>
+<!--        &lt;!&ndash; 第三方日志系统 &ndash;&gt;-->
+<!--        &lt;!&ndash;过滤掉spring和mybatis的一些无用的DEBUG信息，也可以在spring boot 的logging.level.org.springframework=FATAL设置&ndash;&gt;-->
+<!--        &lt;!&ndash; <logger name="org.springframework" level="INFO"></logger> &ndash;&gt;-->
+<!--        &lt;!&ndash; <logger name="org.mybatis" level="INFO"></logger> &ndash;&gt;-->
+<!--        &lt;!&ndash; <logger name="org.apache.http" level="warn" /> &ndash;&gt;-->
+<!--    </loggers>-->
 
 </configuration>

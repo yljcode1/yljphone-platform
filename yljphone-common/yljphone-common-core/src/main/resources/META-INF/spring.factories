@@ -1,2 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.yao.common.core.config.BaseConfiguration
+com.yao.common.core.config.BaseConfiguration
+org.springframework.context.ApplicationListener=\
+com.yao.common.core.config.listener.LogMDCListener
