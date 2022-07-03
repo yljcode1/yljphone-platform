@@ -1,0 +1,71 @@
+package com.yao.commons.web.resp;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+
+/**
+ * 统一接口返回对象
+ *
+ * @date: 2022/7/3
+ * @author: yao
+ */
+@Data
+@Accessors(chain = true)
+@NoArgsConstructor
+@AllArgsConstructor
+public class Response<T> implements Serializable {
+
+    /**
+     * 响应码
+     */
+    private Integer code;
+
+    /**
+     * 响应信息
+     */
+    private String message;
+    /**
+     * 返回数据
+     */
+    private T data;
+
+    /**
+     * 生成指定相应成功枚举类
+     *
+     * @param data 传入数据
+     * @param <T>  返回类型
+     * @return 返回对象
+     */
+    public static <T> Response create(T data) {
+        return new Response(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), data);
+    }
+
+    /**
+     * 生成指定相应枚举类
+     *
+     * @param code code对象
+     * @param data 传入数据
+     * @param <T>  返回类型
+     * @return 返回对象
+     */
+    public static <T> Response create(ResponseCode code, T data) {
+        return new Response(code.getCode(), code.getMsg(), data);
+    }
+
+    /**
+     * 生成指定相应枚举类
+     *
+     * @param code code对象
+     * @param <T>  返回类型
+     * @return 返回对象
+     */
+    public static <T> Response create(ResponseCode code) {
+        return new Response(code.getCode(), code.getMsg(), null);
+    }
+
+}

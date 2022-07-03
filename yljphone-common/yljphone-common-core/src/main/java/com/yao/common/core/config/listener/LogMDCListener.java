@@ -60,6 +60,6 @@ public class LogMDCListener implements GenericApplicationListener {
 
     @Override
     public int getOrder() {
-        return Ordered.HIGHEST_PRECEDENCE + 19;
+        return Ordered.HIGHEST_PRECEDENCE +19;
     }
 }

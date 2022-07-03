@@ -110,10 +110,10 @@ monitorInterval log4j能够自动检测修改配置文件和重新配置本身�
         </RollingFile>
 
         <!-- skywalking输出器 -->
-        <GRPCLogClientAppender name="SkywalkingLog">
-            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
-            <PatternLayout pattern="${LOG_PATTERN}"/>
-        </GRPCLogClientAppender>
+<!--        <GRPCLogClientAppender name="SkywalkingLog">-->
+<!--            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>-->
+<!--            <PatternLayout pattern="${LOG_PATTERN}"/>-->
+<!--        </GRPCLogClientAppender>-->
 
     </appenders>
 
