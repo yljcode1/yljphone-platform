@@ -1,5 +1,6 @@
 package com.yao.business.student.input;
 
+import com.yao.commons.web.annotation.CustomValid;
 import lombok.Data;
 import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Format;
 
@@ -42,5 +43,6 @@ public class StudentInput implements Serializable {
      * 性别
      */
     @NotNull(message = "性别不能为空!")
-    private Integer sex;
+    @CustomValid(message = "性别必须传男女")
+    private String sex;
 }

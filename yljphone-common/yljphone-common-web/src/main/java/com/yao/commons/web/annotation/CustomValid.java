@@ -1,5 +1,7 @@
 package com.yao.commons.web.annotation;
 
+import com.yao.commons.web.constrain.CustomValidHandler;
+
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.*;
@@ -11,7 +13,7 @@ import java.lang.annotation.*;
 @Target({ElementType.FIELD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 //自定义校验注解必须标记的注解，方法validateBy 用于指定实际的校验过程的类
-@Constraint(validatedBy = Xxx.class)
+@Constraint(validatedBy = CustomValidHandler.class)
 public @interface CustomValid {
     /**
      * 校验失败后的提示信息
