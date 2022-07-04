@@ -1,6 +1,7 @@
 package com.yao.commons.web.annotation;
 
 import com.yao.commons.web.constrain.CustomValidHandler;
+import com.yao.commons.web.constrain.YaoValid;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -29,4 +30,11 @@ public @interface CustomValid {
      * 设置校验的负载-元数据
      */
     Class<? extends Payload>[] payload() default {};
+
+    /**
+     * 指定开发者自定义的校验处理器
+     *
+     * @return
+     */
+    Class<? extends YaoValid> handler();
 }
