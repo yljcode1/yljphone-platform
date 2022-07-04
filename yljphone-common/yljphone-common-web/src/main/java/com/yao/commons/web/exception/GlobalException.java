@@ -1,15 +1,23 @@
 package com.yao.commons.web.exception;
 
+import com.sun.org.apache.xerces.internal.impl.XMLEntityScanner;
+import com.yao.commons.web.annotation.BindingExceptionHandlers;
 import com.yao.commons.web.resp.Response;
 import com.yao.commons.web.resp.ResponseCode;
 import com.yao.commons.web.utils.RequestUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.BindException;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.MessageCodeFormatter;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Method;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -49,12 +57,38 @@ public class GlobalException {
     /**
      * 参数校验异常统一处理
      *
-     * @param t 参数校验异常
+     * @param methodArgumentNotValidException requestBody参数校验返回错误
+     * @param t                               get请求返回错误
      * @return 响应结果
      */
+    @BindingExceptionHandlers({BindException.class, MethodArgumentNotValidException.class})
+    public Response bindExceptionHandler(MethodArgumentNotValidException methodArgumentNotValidException, BindException t) {
+        BindingResult result = null;
+        if (methodArgumentNotValidException != null) {
+            result = methodArgumentNotValidException.getBindingResult();
+        }
+        if (t != null) {
+            result = t.getBindingResult();
+        }
+        assert result != null;
+        Set<String> errors = result.getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.toSet());
+        return Response.fail(ResponseCode.PARAMENT_ERROR, errors);
+    }
+
     @ExceptionHandler(BindException.class)
     public Response bindExceptionHandler(BindException t) {
-        Set<String> errors = t.getBindingResult().getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.toSet());
-        return Response.fail(ResponseCode.PARAMENT_ERROR, errors);
+        if (t!=null){
+            Set<String> collect = t.getBindingResult().getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.toSet());
+            return Response.fail(collect);
+        }
+        return Response.fail(ResponseCode.FAIL);
+    }
+    @ExceptionHandler( MethodArgumentNotValidException.class)
+    public Response bindExceptionHandler(MethodArgumentNotValidException t) {
+        if (t!=null){
+            Set<String> collect = t.getBindingResult().getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.toSet());
+            return Response.fail(collect);
+        }
+        return Response.fail(ResponseCode.FAIL);
     }
 }
