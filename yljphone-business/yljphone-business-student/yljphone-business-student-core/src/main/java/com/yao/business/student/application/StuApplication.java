@@ -13,7 +13,6 @@ import javax.swing.*;
  * @author yao
  */
 @SpringBootApplication
-@MapperScan("com.yao.data.mapper")
 public class StuApplication {
     public static void main(String[] args) {
         SpringApplication.run(StuApplication.class, args);

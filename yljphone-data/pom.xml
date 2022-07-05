@@ -14,6 +14,7 @@
     <modules>
         <module>yljphone-data-entity</module>
         <module>yljphone-data-mapper</module>
+        <module>yljphone-data-base</module>
     </modules>
 
     <properties>

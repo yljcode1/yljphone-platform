@@ -9,25 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>yljphone-data-entity</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>yljphone-data-entity-student</module>
-    </modules>
+    <artifactId>yljphone-data-base</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-annotation</artifactId>
-        </dependency>
-    </dependencies>
 
 </project>

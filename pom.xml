@@ -245,6 +245,11 @@
                 <artifactId>yljphone-data-mapper-student</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.yao</groupId>
+                <artifactId>yljphone-data-base</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

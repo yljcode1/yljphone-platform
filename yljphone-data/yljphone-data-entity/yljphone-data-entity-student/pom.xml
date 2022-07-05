@@ -21,5 +21,9 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.yao</groupId>
+            <artifactId>yljphone-data-base</artifactId>
+        </dependency>
     </dependencies>
 </project>

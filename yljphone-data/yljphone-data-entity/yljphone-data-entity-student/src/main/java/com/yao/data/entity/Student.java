@@ -1,5 +1,8 @@
 package com.yao.data.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.yao.data.base.BaseEntity;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -14,8 +17,9 @@ import java.util.Date;
  */
 @Data
 @Accessors(chain = true)
-public class Student {
+public class Student extends BaseEntity {
     //主键
+    @TableId(type = IdType.AUTO)
     private Long id;
     //姓名
     private String name;
@@ -27,12 +31,4 @@ public class Student {
     private Date brithday;
     //性别o-男1-女
     private Integer sex;
-    //创建时间
-    private Date createTime;
-    //修改时间
-    private Date updateTime;
-    //状态
-    private Integer status;
-    //删除标志0-可用1-删除
-    private Integer delFlag;
 }
