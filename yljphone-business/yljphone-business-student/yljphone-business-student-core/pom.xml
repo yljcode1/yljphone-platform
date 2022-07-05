@@ -63,6 +63,10 @@
             <groupId>com.yao</groupId>
             <artifactId>yljphone-business-student-protocol</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.yao</groupId>
+            <artifactId>yljphone-data-mapper-student</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

@@ -1,7 +1,10 @@
 package com.yao.business.student.application.controller;
 
+import com.yao.business.student.application.service.StudentService;
 import com.yao.business.student.input.StudentInput;
 import com.yao.commons.web.resp.Response;
+import com.yao.data.entity.Student;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * 学生业务控制层
@@ -22,8 +26,10 @@ import javax.validation.Valid;
 @RequestMapping("/stu")
 @RefreshScope
 @Slf4j
+@RequiredArgsConstructor
 public class StuController {
 
+    private final StudentService studentService;
     @Value("${spring.datasource.url}")
     private String dbUrl;
 
@@ -31,12 +37,11 @@ public class StuController {
      * 查询所有学生
      */
     @RequestMapping("/list")
-    public Response<String> list() {
-        System.out.println("学生列表:");
-        System.out.println(dbUrl);
+    public Response<List<Student>> list() {
+        List<Student> list = studentService.list();
         log.info("测试打印日志信息");
 //        System.out.println(1 / 0);
-        return Response.success("stu list");
+        return Response.success(list);
     }
 
     /**

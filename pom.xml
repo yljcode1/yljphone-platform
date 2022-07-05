@@ -230,6 +230,21 @@
                 <artifactId>yljphone-business-student-protocol</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.yao</groupId>
+                <artifactId>yljphone-common-mysql</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yao</groupId>
+                <artifactId>yljphone-data-entity-student</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yao</groupId>
+                <artifactId>yljphone-data-mapper-student</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

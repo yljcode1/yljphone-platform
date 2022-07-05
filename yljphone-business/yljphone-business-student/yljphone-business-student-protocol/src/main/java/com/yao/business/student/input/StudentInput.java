@@ -43,6 +43,6 @@ public class StudentInput implements Serializable {
      * 性别
      */
     @NotNull(message = "性别不能为空!")
-    @CustomValid(message = "性别必须传男女")
+//    @CustomValid(message = "性别必须传男女")
     private String sex;
 }
