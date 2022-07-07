@@ -17,6 +17,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -54,5 +58,25 @@ class StuControllerTest {
         log.info("{}", student);
         sqlSession.commit();
         sqlSession.close();
+    }
+
+    @Test
+    public void testJDBC() throws SQLException {
+        String sql = "select * from xxxx";
+        // 获得数据库连接
+        Connection connection = null;
+        //通过连接获取到statement对象
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        // 通过statement对象设置参数
+        preparedStatement.setInt(1, 10);
+
+        // 执行sql语句
+        preparedStatement.execute();
+        // 获取到查询的结果
+        ResultSet resultSet = preparedStatement.getResultSet();
+        while (resultSet.next()) {
+
+        }
+
     }
 }
