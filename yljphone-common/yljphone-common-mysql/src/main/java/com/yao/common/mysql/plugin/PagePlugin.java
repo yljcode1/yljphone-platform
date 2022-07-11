@@ -4,14 +4,18 @@ import com.yao.common.mysql.page.Page;
 import com.yao.common.mysql.page.PageThreadLocal;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.statement.StatementHandler;
+import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.plugin.Intercepts;
 import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Signature;
+import org.apache.ibatis.reflection.MetaObject;
+import org.apache.ibatis.reflection.SystemMetaObject;
 import org.springframework.web.bind.ServletRequestUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -20,13 +24,7 @@ import java.sql.SQLException;
  * @date: 2022/7/9
  * @author: yao
  */
-@Intercepts(
-        @Signature(
-                type = StatementHandler.class,
-                method = "prepare",
-                args = {Connection.class, Integer.class}
-        )
-)
+@Intercepts(@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class}))
 @Slf4j
 public class PagePlugin implements Interceptor {
     /**
@@ -43,6 +41,7 @@ public class PagePlugin implements Interceptor {
         // 获取截取的SQL语句
         String sql = statement.getBoundSql().getSql().toLowerCase().replace("\n", "");
 
+        BoundSql boundSql = statement.getBoundSql();
         // 判断当前是否是查询语句的sql
         if (!sql.startsWith("select")) {
             // 非查询语句
@@ -63,9 +62,7 @@ public class PagePlugin implements Interceptor {
         // 进行相关的参数设置
         if (page.getPageSize() == null) page.setPageSize(10); // 默认每页显示10条
         page.setPageCount(count);
-        page.setPageTotal(page.getPageCount() % page.getPageSize() == 0 ?
-                page.getPageCount() / page.getPageSize() :
-                page.getPageCount() / page.getPageSize() + 1);//设置总页码
+        page.setPageTotal(page.getPageCount() % page.getPageSize() == 0 ? page.getPageCount() / page.getPageSize() : page.getPageCount() / page.getPageSize() + 1);//设置总页码
         // 判断页码的临界值
         if (page.getPageNum() < 1) page.setPageNum(1);
         if (page.getPageCount() > page.getPageTotal()) page.setPageNum(page.getPageTotal());
@@ -76,26 +73,41 @@ public class PagePlugin implements Interceptor {
 
         // 开始执行分页sql
         // 将修改后的sql，替换原来的sql，放行
-        statement.getBoundSql().
-        return null;
+        MetaObject metaObject = SystemMetaObject.forObject(boundSql);
+        metaObject.setValue("sql", sql);
+        return invocation.proceed();
     }
 
     /**
      * 计算查询的总条数
      */
     private Integer getCount(String sql, Invocation invocation, StatementHandler statementHandler) throws SQLException {
-        String countSql = "select count(1) " + sql.substring(sql.indexOf("from"));
+        String countSql = "select count(1) as count " + sql.substring(sql.indexOf("from"));
         log.info("[page - plugin] 生成分页总条数的sql语句 -{}", countSql);
         Connection connection = (Connection) invocation.getArgs()[0];
+        PreparedStatement ps = null;
+        ResultSet resultSet = null;
         try {
             // 设置相关SQL参数
 
-            PreparedStatement ps = connection.prepareStatement(countSql);
+            ps = connection.prepareStatement(countSql);
             // 设置sql的相关参数，借助Mybatis本身的机制，
             statementHandler.parameterize(ps);
-            ps.execute();
+            resultSet = ps.executeQuery();
+            // 获取结果
+            if (resultSet.next()) {
+                int count = resultSet.getInt("count");
+                return count;
+            }
         } catch (Exception e) {
             throw e;
+        } finally {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
         }
         return 0;
     }
