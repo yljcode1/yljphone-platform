@@ -59,14 +59,31 @@ public class PagePlugin implements Interceptor {
         }
         // 分页对象
         log.info("[page - plugin]开始分页-{}", sql);
-        Integer count = getCount(sql, invocation);
+        Integer count = getCount(sql, invocation, statement);
+        // 进行相关的参数设置
+        if (page.getPageSize() == null) page.setPageSize(10); // 默认每页显示10条
+        page.setPageCount(count);
+        page.setPageTotal(page.getPageCount() % page.getPageSize() == 0 ?
+                page.getPageCount() / page.getPageSize() :
+                page.getPageCount() / page.getPageSize() + 1);//设置总页码
+        // 判断页码的临界值
+        if (page.getPageNum() < 1) page.setPageNum(1);
+        if (page.getPageCount() > page.getPageTotal()) page.setPageNum(page.getPageTotal());
+
+        // 开始分页
+        sql += "limit" + (page.getPageNum() - 1) * page.getPageSize() + "," + page.getPageSize();
+        log.info("[page - plugin] 生成分页sql-{}", sql);
+
+        // 开始执行分页sql
+        // 将修改后的sql，替换原来的sql，放行
+        statement.getBoundSql().
         return null;
     }
 
     /**
      * 计算查询的总条数
      */
-    private Integer getCount(String sql, Invocation invocation) throws SQLException {
+    private Integer getCount(String sql, Invocation invocation, StatementHandler statementHandler) throws SQLException {
         String countSql = "select count(1) " + sql.substring(sql.indexOf("from"));
         log.info("[page - plugin] 生成分页总条数的sql语句 -{}", countSql);
         Connection connection = (Connection) invocation.getArgs()[0];
@@ -74,6 +91,8 @@ public class PagePlugin implements Interceptor {
             // 设置相关SQL参数
 
             PreparedStatement ps = connection.prepareStatement(countSql);
+            // 设置sql的相关参数，借助Mybatis本身的机制，
+            statementHandler.parameterize(ps);
             ps.execute();
         } catch (Exception e) {
             throw e;
