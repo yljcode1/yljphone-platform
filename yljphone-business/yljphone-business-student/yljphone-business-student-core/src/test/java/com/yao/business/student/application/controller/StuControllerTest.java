@@ -33,10 +33,10 @@ class StuControllerTest {
     private StuController stuController;
 
 
-    @Test
-    void list() {
-        stuController.list();
-    }
+//    @Test
+//    void list() {
+//        stuController.list();
+//    }
 
     @Test
     void login() {

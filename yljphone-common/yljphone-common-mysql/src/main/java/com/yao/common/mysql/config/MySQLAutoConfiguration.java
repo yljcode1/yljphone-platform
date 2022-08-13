@@ -1,5 +1,6 @@
 package com.yao.common.mysql.config;
 
+import com.yao.common.mysql.plugin.PagePlugin;
 import com.yao.common.mysql.plugin.SQLPlugin;
 import com.yao.common.mysql.property.SQLPluginEnableConfigInfo;
 import org.mybatis.spring.annotation.MapperScan;
@@ -25,5 +26,10 @@ public class MySQLAutoConfiguration {
     @ConditionalOnProperty(name = "yljphone.plugin.sql.enable", havingValue = "true", matchIfMissing = false)
     public SQLPlugin getSQLPlugin() {
         return new SQLPlugin();
+    }
+
+    @Bean
+    public PagePlugin getPagePlugin() {
+        return new PagePlugin();
     }
 }

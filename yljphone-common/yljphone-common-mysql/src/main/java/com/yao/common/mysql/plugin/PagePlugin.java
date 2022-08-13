@@ -11,7 +11,6 @@ import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Signature;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
-import org.springframework.web.bind.ServletRequestUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
