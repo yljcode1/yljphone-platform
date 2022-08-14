@@ -33,9 +33,9 @@ public class FutureThreadPoolDemo {
         executor.submit(futureTask);
         executor.submit(futureTask2);
         executor.submit(futureTask3);
-//        futureTask.get();
-//        futureTask2.get();
-//        futureTask3.get();
+        System.out.println(futureTask.get());
+        System.out.println(futureTask2.get());
+        System.out.println(futureTask3.get());
         long endTime = System.currentTimeMillis();
         System.out.println("----costTime: " + (endTime - startTime) + "毫秒");
         System.out.println(Thread.currentThread().getName() + "\t --end");
