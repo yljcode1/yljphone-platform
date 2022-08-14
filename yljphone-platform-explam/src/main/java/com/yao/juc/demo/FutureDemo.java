@@ -1,18 +1,19 @@
 package com.yao.juc.demo;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.*;
 
 /**
  * @date: 2022/8/14
  * @author: yao
  */
 public class FutureDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+
+        ExecutorService ex = Executors.newFixedThreadPool(3);
         FutureTask<String> futureTask = new FutureTask<>(new MyThread2());
         Thread t1 = new Thread(futureTask, "t1");
         t1.start();
+        System.out.println(futureTask.get());
     }
 
 }
