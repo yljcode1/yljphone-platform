@@ -16,7 +16,7 @@ public class CompletableFutureAPIDemo {
             // doSomething
             return "123";
         });
-        // 异步任务 无返回值
+        // 异步任务 无返回
         CompletableFuture.runAsync(() -> {
             // doSomething;
         });
