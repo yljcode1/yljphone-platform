@@ -36,7 +36,7 @@ public class CompletableFutureAPIDemo {
             System.out.println("333");
             return f + 3;
         }).whenComplete((v, e) -> {
-            if (e == null) {
+            if (v == null) {
                 System.out.println("-----计算结果:" + v);
             }
         }).exceptionally(e -> {
