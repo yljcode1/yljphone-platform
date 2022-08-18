@@ -26,6 +26,10 @@ import java.util.concurrent.TimeUnit;
  * 一个对象里面如果有多个synchronized方法，某一时刻内，只要一个线程去调用其中的synchronized方法，其他线程只能等待，
  * 换一句话说，某一个时刻内，只能有唯一一个线程去访问折现synchronized方法。锁的是当前对象this，被锁定后，其他的线程都不能
  * 进入当前对象的其他的synchronized方法
+ * 3-4
+ * 加个普通方法发现和同步锁无关
+ * 换成两个对象后，不是同一把锁了，情况立刻变化。
+ *
  */
 public class Lock8Demo {
     public static void main(String[] args) {
