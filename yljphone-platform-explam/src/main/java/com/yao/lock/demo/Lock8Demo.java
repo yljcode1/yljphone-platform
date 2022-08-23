@@ -1,6 +1,12 @@
 package com.yao.lock.demo;
 
+import javafx.util.Pair;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 /**
  * @date: 2022/8/18
@@ -53,6 +59,13 @@ public class Lock8Demo {
         //2
 //        phone1.sendEmail();
 //        Phone phone2 = new Phone();
+        List<Pair<String, Double>> pairArrayList = new ArrayList<>(3);
+        pairArrayList.add(new Pair<>("version", 12.10));
+        pairArrayList.add(new Pair<>("version", 12.19));
+        pairArrayList.add(new Pair<>("version", 6.28));
+// 生成的 map 集合中只有一个键值对：{version=6.28}
+        Map<String, Double> map = pairArrayList.stream()
+                .collect(Collectors.toMap(Pair::getKey, Pair::getValue, (v1, v2) -> v2));
     }
 }
 
