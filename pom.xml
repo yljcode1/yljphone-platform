@@ -16,6 +16,7 @@
         <module>yljphone-data</module>
         <module>yljphone-job</module>
         <module>yljphone-platform-explam</module>
+        <module>books</module>
     </modules>
 
     <properties>
