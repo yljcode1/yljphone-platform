@@ -29,6 +29,7 @@ public class ReentrantLockDemo {
     }
 }
 
+// 创建资源，提供属性和方法
 class Ticket {
     private int number = 50;
     ReentrantLock lock = new ReentrantLock(true);
