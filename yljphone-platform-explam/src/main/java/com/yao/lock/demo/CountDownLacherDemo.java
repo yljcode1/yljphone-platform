@@ -27,8 +27,6 @@ public class CountDownLacherDemo {
                     e.printStackTrace();
                 }
                 countDownLatch.countDown();
-
-
             }, String.valueOf(i)).start();
         }
         // 等待countDownLatch减少成0
